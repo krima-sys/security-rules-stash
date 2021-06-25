@@ -8,9 +8,9 @@ spec:
       hostname: xyz
 Process:
  matchpaths:
-  -path: ./      
+  path: ./      
  matchname:
-  -parameter: ls -a, mkdir
+  parameter: ls -a, mkdir
 Action: 
   Audit
 Severity: 3
