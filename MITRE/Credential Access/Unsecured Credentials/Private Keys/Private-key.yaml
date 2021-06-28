@@ -1,0 +1,19 @@
+piVersion: Security.accuknox.com/v1
+kind: KubeArmorPolicy
+Metadata: 
+ name: mitre-tactic-credential-access-private-keys
+spec:
+ SelectorLabels: 
+  nodeSelector:
+      hostname: xyz
+Process:
+ matchpaths:
+  -path:  Grep private keys or passwords activities found
+    (user=%user.name command=%proc.cmdline container_id=%container.id container_name=%container.name
+    image=%container.image.repository:%container.image.tag) 
+    (.key, .pgp, .gpg, .ppk., .p12, .pem, .pfx, .cer, .p7b, .asc  )
+ matchname:
+  -parameter:  find, grep
+Action: 
+  Audit
+Severity: 3
