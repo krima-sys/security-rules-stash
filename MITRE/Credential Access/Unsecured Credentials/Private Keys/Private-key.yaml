@@ -9,9 +9,9 @@ Metadata:
 
 Process:
  matchpaths:
-  -path:  Grep file/.key, .pgp, .gpg, .ppk., .p12, .pem, .pfx, .cer, .p7b, .asc  
+  - path:  Grep file/.key, .pgp, .gpg, .ppk., .p12, .pem, .pfx, .cer, .p7b, .asc  
  matchname:
-  -parameter:  find, grep
+  - parameter:  find, grep
 Action: 
   Audit
 
