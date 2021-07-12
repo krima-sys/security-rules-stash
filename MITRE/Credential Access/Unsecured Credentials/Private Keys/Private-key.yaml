@@ -2,16 +2,17 @@ apiVersion: Security.accuknox.com/v1
 kind: KubeArmorPolicy
 Metadata: 
  name: mitre-tactic-credential-access-private-keys
- namespace: multiubuntu
- spec:
-  severity: 5
-  message: "Access not allow"
-
-Process:
- matchpaths:
-  - path:  Grep file/.key, .pgp, .gpg, .ppk., .p12, .pem, .pfx, .cer, .p7b, .asc  
- matchname:
-  - parameter:  find, grep
-Action: 
-  Audit
-
+ namespace: testns
+spec:
+  severity: 3
+  selector:
+    matchLabels:
+      container: ubuntu-1  #use your labels name here
+  process:
+    matchPaths:
+      - path:  Grep file/.key, .pgp, .gpg, .ppk., .p12, .pem, .pfx, .cer, .p7b, .asc  
+    matchname:
+      - parameter:  find, grep
+  action:
+      Audit  
+     
