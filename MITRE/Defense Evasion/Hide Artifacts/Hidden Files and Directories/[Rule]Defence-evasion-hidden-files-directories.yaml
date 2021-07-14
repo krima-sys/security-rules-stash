@@ -1,16 +1,14 @@
-apiVersion: Security.accuknox.com/v1
+apiVersion: security.kubearmor.com/v1
 kind: KubeArmorPolicy
-metadata: 
- name: mitre-tactic-defence-evasion-hidden-files-directories
- namespace: multiuabntu
+metadata:
+  name:  mitre-tactic-defence-evasion-hidden-files-directories
+  namespace: multiubuntu  #use your namespace name here
 spec:
- selector: 
-  matchLabels: 
-   container: ubantu-1 
-file:
- matchpaths:
-  - path:  /home/.bash_history
- 
- Action: 
-  Audit
-Severity: 3
+  severity: 3
+  selector:
+    matchLabels:
+      container: ubuntu-1  #use your labels name here
+ file:
+    matchPaths:
+      - path:  /root/.bash_history
+    action: Audit
