@@ -1,16 +1,16 @@
 apiVersion: Security.accuknox.com/v1
 kind: KubeArmorPolicy
-Metadata: 
+metadata: 
  name: mitre-tactic-defence-evasion-hidden-files-directories
+ namespace: multiuabntu
 spec:
- SelectorLabels: 
-  nodeSelector:
-      hostname: xyz
-Process:
+ selector: 
+  matchLabels: 
+   container: ubantu-1 
+file:
  matchpaths:
-  - path: ./      
- matchname:
-  - parameter: ls -a, mkdir
-Action: 
+  - path:  /home/.bash_history
+ 
+ Action: 
   Audit
 Severity: 3
