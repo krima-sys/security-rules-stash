@@ -14,8 +14,7 @@ spec:
       - path:  /etc/shadow
       - path:  /usr/bin/unshadow
       - path:  /tmp/crack.password.db
-    matchname:
-      - parameter:  find, grep
+   
   action:
       Audit  
      
