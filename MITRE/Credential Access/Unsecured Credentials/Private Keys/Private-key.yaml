@@ -10,7 +10,8 @@ spec:
       container: ubuntu-1  #use your labels name here
   process:
     matchPaths:
-      - path:  Grep file/.key, .pgp, .gpg, .ppk., .p12, .pem, .pfx, .cer, .p7b, .asc  
+      - path:  /etc/passwd
+      - path:  /etc/shadow
     matchname:
       - parameter:  find, grep
   action:
